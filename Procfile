@@ -1,1 +1,1 @@
-web: gunicorn Himal_darshan.wsgi
+web: python manage.py runserver 0.0.0.0:$PORT
