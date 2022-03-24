@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-tlad1n7*no%f-(#f-$ek_r2ls+b)2i3f)vw7xjrk8_t-=pz39d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["http://schoolsolu.herokuapp.com/"]
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home'
@@ -135,3 +135,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 django_heroku.settings(locals())
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+
+import dj_database_url 
+prod_db  =  dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(prod_db)
