@@ -1,0 +1,54 @@
+{% extends 'student/base.html' %}
+{% block content %}
+<body>
+ 
+
+   <div class="card text-center ">
+        <div class="card-header">
+         
+          <form class="d-flex justify-content-center form-inline my-2 my-lg-0" action="{% url 'search' %}" method="GET" value="{{request.GET.q}}">
+            <input class="form-control mb-2 mr-sm-2"  type="text" name="q" value="{{request.GET.q}}" placeholder="Search Student"/>
+            <input class="btn btn-primary my-2 my-sm-0" type="submit" name="submit" value="Search"/>
+            </form>
+
+       
+        </div> 
+
+        <div class="card-body">
+            
+          <h5 class="card-title">Yes {{user.username}}! <br> You Are At The Main Page.</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary">Learn To Operate This Web Application</a>
+        </div>
+
+        <div class="container bg-light">
+          <div class="col-md-12 text-center">
+            <a class="nav-link" href="{% url 'add_subject' %}"><button type="button" class="btn btn-primary">Add Subject</button></a>
+              </div>
+            </div>
+            <div class="container bg-light">
+              <div class="col-md-12 text-center">
+                <a class="nav-link" href="{% url 'add_result' %}"><button type="button" class="btn btn-primary">Add Result</button></a>
+                  </div>
+                </div>
+                <div class="container bg-light">
+                  <div class="col-md-12 text-center">
+                    <a class="nav-link" href="{% url 'add_student' %}"><button type="button" class="btn btn-primary">Add Student</button></a>
+                      </div>
+                    </div>
+                    
+ 
+       
+      </div> 
+
+
+
+ 
+     
+
+    
+     <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+ </body>
+ {% endblock %}

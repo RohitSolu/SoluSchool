@@ -1,0 +1,21 @@
+{% extends 'student/base.html' %}
+{% block content %}
+
+    <div class="card-body">
+<ul class="mt-3 list-group text-center">
+    {% for issuer in issuers %}
+    <li class="list-group-item active" aria-current="true">Principal/Issuer</li>
+    <li class="list-group-item">Name:- {{issuer.name}}</li>
+    <li class="list-group-item">Designation:- {{issuer.designation}}</li>
+    <li class="list-group-item">Issue Date:- {{issuer.date_of_issue}}</li>
+    
+  </ul>
+</div>
+<div class="col-md-12 text-center">
+    <a class="nav-link" href="{% url 'issuer_update' issuer.id %}"><button type="button" class="btn btn-primary">Edit</button></a>
+      </div>
+      {% endfor %}
+{% endblock %}
+         
+
+

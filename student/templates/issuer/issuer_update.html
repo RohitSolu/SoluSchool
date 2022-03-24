@@ -1,0 +1,26 @@
+{% extends 'student/base.html' %}
+{% block content %}
+        {% load crispy_forms_tags %}
+        <div >
+            <form method="post">
+                {% csrf_token %}
+                <legend class="w-auto px-2"> Edit Issuer Details</legend>
+                <div class="form-row">
+             
+                    <div class="form-group col-md-6 mb-1">
+                      {{ form.name|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-6 mb-0">
+                      {{ form.designation|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-6 mb-0">
+                        {{ form.date_of_issue|as_crispy_field }}
+                      </div>
+                         
+                </div> 
+                <button type="submit" name="create-detail" class="m-2 btn btn-primary">Save</button>
+        </form>
+        <script src="" async defer></script>
+    </body>
+    {% endblock content %}
+  

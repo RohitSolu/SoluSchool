@@ -1,0 +1,47 @@
+{% extends 'student/base.html' %}
+{% block content %}
+
+<div class="container bg-light">
+  <div class="col-md-12 text-center">
+    <button type="button" class="btn btn-primary"><h2 class="text-center">Student Record</h2></button>
+      </div>
+    </div>
+
+<br>
+
+       <div style="overflow-x: auto;">
+         <table class="table table-success table-striped">
+           <tr>
+            <th>Roll No.</th>
+             <th>Name</th>
+             <th>Fathers Name</th>
+             <th>Mothers Name</th>
+             <th>Date of Birth</th>
+             <th>Registration Number</th>
+             <th>Address</th>
+             <th>Character of Student</th>
+             <th><i class="bi bi-pencil-square">Edit</i></th>
+             <th><i class="bi bi-x-lg">Delete</i></th>
+             
+            
+           </tr>
+           {% for student in students %}
+           <tr>
+            <td>{{ student.roll_no }}</td>
+             <td>{{ student.name }}</td>
+             <td>{{ student.fathers_name }}</td>
+             <td>{{ student.mothers_name }}</td>
+             <td>{{ student.date_of_birth }}</td>
+             <td>{{ student.registration_number }}</td>
+             <td>{{ student.address }}</td>
+             <td>{{ student.character_of_student }}</td>
+             <td><a href = "{% url 'student_update' student.roll_no %}">Edit</a></td>
+             <td><a href = "{% url 'student_delete' student.roll_no %}">Delete</a></td>       
+           </tr>
+          
+         {% endfor %}
+         </table>
+         
+      </div>
+         
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends 'student/base.html' %}
+{% block content %}
+<body>
+<h1 class="mt-2 text-center font-weight-bold">Student for Class One</h1>
+<div class="card-header">        
+  <form class="d-flex justify-content-center form-inline my-2 my-lg-0" action="{% url 'search' %}" method="GET" value="{{request.GET.q}}">
+    <input class="form-control mb-2 mr-sm-2"  type="text" name="q" value="{{request.GET.q}}" placeholder="Search Student"/>
+    <input class="btn btn-primary my-2 my-sm-0" type="submit" name="submit" value="Search"/>
+    </form>
+</div> 
+<div>
+    <a class="btn btn-secondary" href="{% url 'add_student' %}" role="button" style="float:right">Add</a>
+</div>
+<table class="table" style="margin-top: 2%;">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Roll No</th>
+      <th scope="col">Name</th>
+      <th scope="col">Fathers Name</th>
+      <th scope="col">Mothers Name</th>
+      <th scope="col">Date of Birth</th>
+      <th scope="col">Reg. Number</th>
+      <th scope="col">Address</th>
+      <th scope="col">Character of Student</th>
+      <th scope="col"><i class="bi bi-pencil-square">Edit</i></th>
+      <th scope="col"><i class="bi bi-x-lg">Delete</i></th>
+             
+    </tr>
+  </thead>
+  <tbody>
+    {% comment %} {% if context %} {% endcomment %}
+    {% for student in students %}
+            <tr>
+              <th scope="row">{{student.roll_no}}</th>
+              
+             <td>{{ student.name | capfirst }}</td>
+             <td>{{ student.fathers_name | capfirst}}</td>
+             <td>{{ student.mothers_name | capfirst}}</td>
+             <td>{{ student.date_of_birth }}</td>
+             <td>{{ student.registration_number }}</td>
+             <td>{{ student.address | capfirst}}</td>
+             <td>{{ student.character_of_student | capfirst}}</td>
+             <td><a href="{% url 'student_update' student.roll_no %}" class="btn btn-primary">Edit</a></td>
+              <td><a href="{% url 'student_delete' student.roll_no %}" class="btn btn-danger">Delete</a></td>
+            </tr>
+        {% endfor %}
+    {% comment %} {% else %}
+        <tr>
+            <th>No Data Found</th>
+        </tr>
+    {% endif %} {% endcomment %}
+  </tbody>
+</table>
+
+</body>
+{% if users.has_other_pages %}
+  <ul class="pagination">
+    {% if users.has_previous %}
+      <li><a href="?page={{ users.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in users.paginator.page_range %}
+      {% if users.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if users.has_next %}
+      <li><a href="?page={{ users.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
+{% endblock %}
+         
+
+

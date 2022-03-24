@@ -1,0 +1,48 @@
+{% extends 'student/base.html' %}
+{% block content %}
+        {% load crispy_forms_tags %}
+        <div >
+            <form method="post">
+                {% csrf_token %}
+                <legend class="w-auto px-2"> Edit Student Details</legend>
+                <div class="form-row">
+             
+                    <div class="form-group col-md-6 mb-1">
+                      {{ form.roll_no|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-6 mb-0">
+                      {{ form.name|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-6 mb-0">
+                        {{ form.fathers_name|as_crispy_field }}
+                      </div>
+                      <div class="form-group col-md-6 mb-0">
+                        {{ form.mothers_name|as_crispy_field }}
+                      </div>
+                      <div class="form-group col-md-6 mb-0">
+                        {{ form.date_of_birth|as_crispy_field }}
+                      </div>
+                      <div class="form-group col-md-6 mb-0">
+                          {{ form.registration_number|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-6 mb-0">
+                          {{ form.address|as_crispy_field }}
+                        </div>
+                        
+                            <div class="form-group col-md-6 mb-0">
+                              {{ form.character_of_student|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.cls|as_crispy_field }}
+                              </div>
+                             
+                </div> 
+                <button type="submit" name="create-detail" class="m-2 btn btn-primary">Save</button>
+            
+            {% comment %} <button class="m-2 btn btn-danger" type="submit"><a href="{% url 'delete' student.id %}"> Delete<a></button> {% endcomment %}
+    
+        </form>
+        <script src="" async defer></script>
+    </body>
+    {% endblock content %}
+  

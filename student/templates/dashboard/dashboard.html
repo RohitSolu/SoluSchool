@@ -1,0 +1,41 @@
+{% extends 'student/base.html' %}
+{% block content %}
+<h1 class="mt-4 text-center text-primary">Dashboard</h1>
+<div class="card-group">
+    <div class="ml-4 mt-4 card">
+        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+            <div class="card-header">Students</div>
+            <div class="card-body">
+              <h5 class="h1 card-title">{{students}}</h5>
+              <p class="card-text">This system contains {{students}} student entry.</p>
+            </div>
+          </div>
+    </div>
+    <div class="mt-4 card">
+        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+            <div class="card-header">Subjects</div>
+            <div class="card-body">
+              <h5 class="h1 card-title">{{subjects}}</h5>
+              <p class="card-text">This system contains {{subjects}} subjects entry.</p>
+            </div>
+          </div>
+    </div>
+    <div class="mt-4 card">
+        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+            <div class="card-header">Results</div>
+            <div class="card-body">
+              <h5 class="h1 card-title">{{results}}</h5>
+              <p class="card-text">This system contains {{results}} results entry.</p>
+            </div>
+          </div>
+    </div>
+  </div>
+  
+    <!-- /.col-lg-3 col-md-3 col-sm-6 col-xs-12 -->
+
+    
+    <!-- /.col-lg-3 col-md-3 col-sm-6 col-xs-12 -->
+
+</div>
+<!-- /.row -->
+{% endblock %}

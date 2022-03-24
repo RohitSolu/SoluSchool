@@ -1,0 +1,79 @@
+{% extends 'student/base.html' %}
+{% block content %}
+
+<body>
+  <h1 class="mt-2 text-center font-weight-bold">Result for Class One</h1>
+
+  <div>
+      <a class="btn btn-secondary" href="{% url 'add_result' %}" role="button" style="float:right">Add</a>
+  </div>
+  <div class="table-responsive">
+         <table class="table table-sm table-bordered border-primary">
+            <thead>
+              
+              <tr>
+                <th scope="col">Sheet</th>
+                  <th rowspan="2">Roll No</th>
+                  <th rowspan="2">Name </th>
+                  <th rowspan="2">Registration Number</th>
+                  {% for res in results %}
+                  <th colspan="4">{{res.subject.name}}</th>
+                  {%endfor%}
+                  <th>GPA</th>
+                  
+                  <th scope="col">Edit</th>
+                  <th scope="col">Delete</th>
+              </tr>
+              <tr>
+                {% for resu in results %}
+                 <th>Code</th>
+                 <th>Grade</th>
+                 <th>Final Grade</th>
+                 <th>Grade Point</th>
+                 {%endfor%}
+              <tr>
+                
+ 
+            </thead>
+            {% for result in results %}
+
+              <tbody>
+                <tr>{% ifchanged %}
+                  <td><a href="{% url 'marksheet' result.id %}" class="btn btn-danger">Sheet</a></td>
+                  <td>{{ result.name.roll_no }}</td>
+                  <td>{{ result.name.name }}</td>
+                  <td>{{ result.name.registration_number }}</td> 
+                  {% endifchanged %}                
+                  {% for resul in results %}               
+                  <td>{{ resul.subject.subject_code}}</td>
+                  <td>{{ resul.grade }}</td>
+                  <td>{{ resul.final_grade }}</td>
+                  <td>{{ resul.grade_point }}</td>                                                   
+                  {% endfor %}
+                  <td>GPA</td>
+                  
+                  <td><a href="#" class="btn btn-primary">Edit</a></td>
+                  <td><a href="#" class="btn btn-danger">Delete</a></td>
+                </tr>
+                
+              </tbody>
+
+              {% endfor %}
+              
+              </table>
+            </div>
+            </body>
+              {% comment %} <button onclick="myfun('pt')" class="btn btn-primary mt-3">Print Result</button>
+             </div> {% endcomment %}
+              {% comment %} <script type="text/javascript">
+                function myfun(pa){
+                var bk = document.body.innerHTML;
+                var dv = document.getElementById(pa).innerHTML;
+                    document.body.innerHTML = dv;
+                    window.print();
+                }
+              </script>
+          {% endcomment %}
+{% endblock %}
+
+
