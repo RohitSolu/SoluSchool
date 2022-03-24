@@ -38,12 +38,12 @@
             {% for result in results %}
 
               <tbody>
-                <tr>{% ifchanged %}
-                  <td><a href="{% url 'marksheet' result.id %}" class="btn btn-danger">Sheet</a></td>
+                <tr>
+                  <td><a href="{% url 'marksheet' result.name.roll_no%}" class="btn btn-danger">Sheet</a></td>
                   <td>{{ result.name.roll_no }}</td>
                   <td>{{ result.name.name }}</td>
                   <td>{{ result.name.registration_number }}</td> 
-                  {% endifchanged %}                
+                                  
                   {% for resul in results %}               
                   <td>{{ resul.subject.subject_code}}</td>
                   <td>{{ resul.grade }}</td>
