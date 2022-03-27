@@ -1,1 +1,1 @@
-web: gunicorn Himal_darshan.wsgi
+web: waitress-serve --port=$PORT Himal_darshan.wsgi:application
