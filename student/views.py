@@ -168,12 +168,21 @@ def marksheet(request, roll_no):
     student = Student.objects.get(roll_no=roll_no)
     avgs = Result.objects.values('subject__name').annotate(avg1=Avg('grade_point'))
     results = student.result_set.all()
+    sum=0
+    countr = 0
+    for result in results:
+        print(result.grade_point)
+        sum=(sum+result.grade_point)
+        countr = countr+1
+
+    avg = sum/countr
+    print(avg)
     # avgs = student.result_set.all.aggregate(avg1=Avg('grade_point'))
     issuers = Issuer.objects.all()
     context = {
         'results': results,
         'issuers': issuers,
-        'avgs':avgs,
+        'avgs':avg,
     }
     return render(request,'student/marksheet.html',context)
 

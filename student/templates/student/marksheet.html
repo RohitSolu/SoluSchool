@@ -94,18 +94,18 @@
           </table>
           
         </div>
-        {% for avg in avgs %}
-            {% if forloop.counter < 2 %}
+        {% comment %} {% for avg in avgs %}
+            {% if forloop.counter < 2 %} {% endcomment %}
     
 <br> 
 <div class="d-block border float-left">
  
-<p class="h5">Grade Point Average: {{ avg.avg1 }}</p>
+<p class="h5">Grade Point Average: {{ avgs }}</p>
 
 </div>   
 
-{% endif %}
-{% endfor %}
+{% comment %} {% endif %}
+{% endfor %} {% endcomment %}
  <br>
   {% for issuer in issuers %}
 
