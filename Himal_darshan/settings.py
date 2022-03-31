@@ -12,7 +12,7 @@ DEBUG = False
 DEBUG_PROPAGATE_EXCEPTIONS = True
 
 #ALLOWED_HOSTS = ["schoolsolu.herokuapp.com","localhost"]
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["schoolsolu.herokuapp.com"]
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home'
